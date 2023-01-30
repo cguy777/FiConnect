@@ -5,4 +5,4 @@
  * @author Noah
  *
  */
-package fiberous.network;
+package fiberous.network.cm;

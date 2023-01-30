@@ -4,8 +4,8 @@ import java.io.IOException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
-import fiberous.network.ConnectionManager;
-import fiberous.network.StreamBundle;
+import fiberous.network.cm.ConnectionManager;
+import fiberous.network.cm.StreamBundle;
 
 public class ClientTest {
 	public static void main(String[]args) throws UnknownHostException, IOException {

@@ -2,8 +2,8 @@ package testing.server;
 
 import java.io.IOException;
 
-import fiberous.network.ConnectionManager;
-import fiberous.network.StreamBundle;
+import fiberous.network.cm.ConnectionManager;
+import fiberous.network.cm.StreamBundle;
 
 public class ServerThread implements Runnable {
 	

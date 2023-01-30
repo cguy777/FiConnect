@@ -1,4 +1,4 @@
-package fiberous.network;
+package fiberous.network.cm;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
