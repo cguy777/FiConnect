@@ -42,12 +42,12 @@ import java.net.Socket;
  * provided by a socket.  It has a couple convenience methods included.  The primary purpose of
  * this class is to provide easy access to a Socket's IO streams.  While the Socket is also copied
  * into this class, it is really only there for for reference purposes.  The preferred way of
- * interacting with the Socket is either with the {@link ConnectionManager} or directly with the
+ * interacting with the Socket is either with the {@link FiConnectionManager} or directly with the
  * Socket OUTSIDE of this class.
  * @author Noah
  *
  */
-public class StreamBundle {
+public class FiStreamBundle {
 	private Socket socket;
 	private DataInputStream iStream;
 	private DataOutputStream oStream;
@@ -58,7 +58,7 @@ public class StreamBundle {
 	 * @param s
 	 * @throws IOException
 	 */
-	public StreamBundle(Socket s) throws IOException {
+	public FiStreamBundle(Socket s) throws IOException {
 		socket = s;
 		iStream = new DataInputStream(s.getInputStream());
 		oStream = new DataOutputStream(s.getOutputStream());
@@ -85,7 +85,7 @@ public class StreamBundle {
 	/**
 	 * Returns the Socket that is associated with this StreamBundle.  This should only
 	 * be used for reference purposes.  Preferred Socket interaction is through the
-	 * {@link ConnectionManager} or directly with the Socket itself, if it was created
+	 * {@link FiConnectionManager} or directly with the Socket itself, if it was created
 	 * externally, without the use of a ConnectionManager.
 	 * @return
 	 */

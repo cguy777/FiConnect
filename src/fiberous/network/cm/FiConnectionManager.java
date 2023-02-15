@@ -45,7 +45,7 @@ import java.util.ArrayList;
  * @author Noah
  *
  */
-public class ConnectionManager {
+public class FiConnectionManager {
 	
 	/**
 	 * This is the port on which sessions are initiated by default, and then is handed
@@ -69,7 +69,7 @@ public class ConnectionManager {
 	/**
 	 * Creates a new ConnectionManager with default settings.
 	 */
-	public ConnectionManager() {
+	public FiConnectionManager() {
 		sockets = new ArrayList<Socket>();
 		
 		controlPort = CONTROL_PORT;
@@ -83,7 +83,7 @@ public class ConnectionManager {
 	 * Creates a new ConnectionManager with a specified control port.
 	 * @param port
 	 */
-	public ConnectionManager(int cPort) {
+	public FiConnectionManager(int cPort) {
 		sockets = new ArrayList<Socket>();
 		
 		setControlPort(cPort);
@@ -146,13 +146,13 @@ public class ConnectionManager {
 	 * Attempts to initiate a connection with another device by reaching out and connecting
 	 * on a predetermined port.  The default port is 5676 (This port is configurable).
 	 * It will then negotiate for a new port that is, by default, within the IANA ephemeral
-	 * port range (49152-65535, this range is configurable).  A {@link StreamBundle} is
+	 * port range (49152-65535, this range is configurable).  A {@link FiStreamBundle} is
 	 * then returned based off of this new socket connection.
 	 * @param ipAddress
 	 * @return
 	 * @throws IOException
 	 */
-	public StreamBundle initSessionNegotiation(InetAddress ipAddress) throws IOException {
+	public FiStreamBundle initSessionNegotiation(InetAddress ipAddress) throws IOException {
 		Socket initSocket = new Socket(ipAddress, controlPort);
 		DataInputStream initInputStream = new DataInputStream(initSocket.getInputStream());
 		
@@ -178,18 +178,18 @@ public class ConnectionManager {
 		}
 		Socket dataSocket = new Socket(ipAddress, portNumber);
 		sockets.add(dataSocket);
-		return new StreamBundle(dataSocket);
+		return new FiStreamBundle(dataSocket);
 	}
 	
 	/**
 	 * Waits for a connection on a predetermined port.  The default port is 5676.  It will
 	 * then negotiate for a random new port that is, by default, within the IANA ephemeral port
-	 * range (49152-65535). This range is configurable.  A {@link StreamBundle} is then
+	 * range (49152-65535). This range is configurable.  A {@link FiStreamBundle} is then
 	 * returned based off of this new socket connection.
 	 * @return
 	 * @throws IOException
 	 */
-	public StreamBundle waitForSessionNegotiation() throws IOException {
+	public FiStreamBundle waitForSessionNegotiation() throws IOException {
 		serverSocket = new ServerSocket(controlPort);
 		Socket initSocket = serverSocket.accept();
 		serverSocket.close();
@@ -223,7 +223,7 @@ public class ConnectionManager {
 		
 		serverSocket.close();
 		sockets.add(dataSocket);
-		return new StreamBundle(dataSocket);
+		return new FiStreamBundle(dataSocket);
 	}
 	
 	/**
