@@ -1,9 +1,0 @@
-/**
- * 
- */
-/**
- * @author Noah
- *
- */
-module ConnectionSystem {
-}
