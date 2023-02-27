@@ -118,4 +118,14 @@ public class FiStreamBundle {
 		iStream.close();
 		oStream.close();
 	}
+	
+	/**
+	 * Closes the DataInputStream, DataOutputStream, and the Socket associated with this StreamBundle.
+	 * @throws IOException
+	 */
+	public void close() throws IOException {
+		iStream.close();
+		oStream.close();
+		socket.close();
+	}
 }
