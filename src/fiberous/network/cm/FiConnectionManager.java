@@ -227,16 +227,16 @@ public class FiConnectionManager {
 	}
 	
 	/**
-	 * Searches through the array list looking for the matching socket based off of an IP address and a port number.
-	 * Accepts both the remote IP address and the remote port number of the connection for extra assurance.
-	 * Returns null if the socket can't be found.
+	 * Searches through the array list looking for the matching socket based off of an IP address.
+	 * This will return the first the Socket with a matching InetAddress.
+	 * This could potentially cause issues if there are multiple Sockets to the same IP, but with different ports.
 	 * @param connectedPeer
 	 * @param portNumber
 	 * @return
 	 */
-	public Socket getAConnectedSocket(InetAddress connectedPeer, int portNumber) {
+	public Socket getAConnectedSocket(InetAddress connectedPeer) {
 		for(int i = 0; i<sockets.size(); i++) {
-			if(sockets.get(i).getInetAddress().equals(connectedPeer) && sockets.get(i).getPort() == portNumber) {
+			if(sockets.get(i).getInetAddress().equals(connectedPeer)) {
 				return sockets.get(i);
 			}
 		}
