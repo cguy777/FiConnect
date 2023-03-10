@@ -37,13 +37,13 @@ import java.io.IOException;
 import java.net.Socket;
 
 /**
- * A simple object that contains a {@link DataInputStream}, a {@link DataOutputStream}, and the
- * Socket the streams were derived from for convenience.  It is constructed from information
- * provided by a socket.  It has a couple convenience methods included.  The primary purpose of
- * this class is to provide easy access to a Socket's IO streams.  While the Socket is also copied
- * into this class, it is really only there for for reference purposes.  The preferred way of
- * interacting with the Socket is either with the {@link FiConnectionManager} or directly with the
- * Socket OUTSIDE of this class.
+ * A simple object that contains a {@link DataInputStream}, a {@link DataOutputStream}, and the Socket the streams were derived from for convenience.
+ * It is constructed from information provided by a {@link Socket}.
+ * It has a couple convenience methods included.
+ * The primary purpose of this class is to provide easy access to a Socket's IO streams.
+ * While the Socket itself is included, typically, you would conduct open/close operations with the Socket indirectly by using the {@link FiConnectionManager}.
+ * This way the FiConnectionManager will maintain an accurate record of current connections.
+ * In in smaller scaled applications, this may not matter.
  * @author Noah
  *
  */
