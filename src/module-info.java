@@ -1,3 +1,3 @@
 module FiConnect {
-	exports fiberous.network.cm;
+	exports fibrous.network.cm;
 }

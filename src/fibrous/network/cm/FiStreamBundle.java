@@ -29,7 +29,7 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package fiberous.network.cm;
+package fibrous.network.cm;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
