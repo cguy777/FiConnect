@@ -145,7 +145,7 @@ public class FiConnectionManager {
 	/**
 	 * Attempts to initiate a connection with another device by reaching out and connecting
 	 * on a predetermined port.  The default port is 5676 (This port is configurable).
-	 * It will then negotiate for a new port that is, by default, within the IANA ephemeral
+	 * It will then negotiate randomly for a new port that is, by default, within the IANA ephemeral
 	 * port range (49152-65535, this range is configurable).  A {@link FiStreamBundle} is
 	 * then returned based off of this new socket connection.
 	 * @param ipAddress
